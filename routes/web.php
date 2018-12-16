@@ -26,7 +26,7 @@ Route::get('/', function () {
 /*===================
 ==== Users Rout =====
 ===================*/
-Route::get('/dashboard', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'UserController@index')->name('dashboard');
 
 
 
