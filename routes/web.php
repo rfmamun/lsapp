@@ -11,14 +11,31 @@
 |
 */
 
+Auth::routes();
+
+
+/*===================
+==== Guest Rout =====
+===================*/
 Route::get('/', function () {
     return view('welcome');
 });
 
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+/*===================
+==== Users Rout =====
+===================*/
+Route::get('/dashboard', 'HomeController@index')->name('home');
+
+
+
+/*===================
+==== Admin Rout =====
+===================*/
+Route::get('/admin', function () {
+    return redirect('admin/dashboard');
+});
 
 Route::prefix('admin')->group(function() {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
